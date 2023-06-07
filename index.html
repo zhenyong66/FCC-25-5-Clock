@@ -1,0 +1,29 @@
+<head>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+
+<body>
+    <script src="script.js"></script>
+    <div id="break-label">Break Length
+        <input id="break-length" value=5></input>
+    </div>
+    <div id="session-label">Session Length
+        <input id="session-length" value=25></input>
+    </div>
+    <div>
+        <button id="break-decrement" onclick="pressBreakDecrement()">Break Decrement</button>
+        <button id="break-increment" onclick="pressBreakIncrement()">Break Increment</button>
+        <button id="session-decrement" onclick="pressSessionDecrement()">Session Decrement</button>
+        <button id="session-increment" onclick="pressSessionIncrement()">Session Increment</button> 
+    </div>
+    <div>
+        <p id="timer-label"></p>
+        <p id="time-left"></p>
+    </div>  
+    <div>
+        <button id="start_stop" onclick="pressStartStop()">Start/Stop</button>
+      
+        <button id="reset" onclick="pressReset()">Reset</button>
+    </div>
+    <audio id="beep" src="https://freesound.org/data/previews/316/316847_4939433-lq.mp3"></audio>
+</body>
