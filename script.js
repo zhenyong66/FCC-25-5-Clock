@@ -117,7 +117,7 @@ function countDown() {
   else if (Number(sec) == 0) {
     if (Number(min) > 0) {
       min = Number(min) - 1;
-      sec = "3";
+      sec = "59";
     }
     else if (Number(min) == 0) {
       document.getElementById("beep").play();
