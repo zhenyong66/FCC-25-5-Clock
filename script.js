@@ -1,48 +1,44 @@
-var breakTime = document.getElementById("break-length").value;
-var sessionTime = document.getElementById("session-length").value;
-var min = 25;
-var sec = "00";
-var timerState = 0;
-var myInterval = "";
-var timerLabel = "Session";
+let breakTime = document.getElementById("break-length").innerHTML;
+let sessionTime = document.getElementById("session-length").innerHTML;
+let min = 25;
+let sec = 0;
+let timerState = 0;
+let myInterval = "";
+let timerLabel = "Session";
 document.getElementById("timer-label").innerHTML = timerLabel;
 showTime();
 
 function pressBreakDecrement() {
-  min = document.getElementById("break-length").value;
-  min = Number(min);
+  min = Number(document.getElementById("break-length").innerHTML);
   if (min > 1) {
     min -= 1;
   }
-  document.getElementById("break-length").value = min;
+  document.getElementById("break-length").innerHTML = String(min);
 }
 
 function pressBreakIncrement() {
-  min = document.getElementById("break-length").value;
-  min = Number(min);
+  min = Number(document.getElementById("break-length").innerHTML);
   if (min < 60) {
     min += 1
   }
-  document.getElementById("break-length").value = min;
+  document.getElementById("break-length").innerHTML = String(min);
 }
 
 function pressSessionDecrement() {
-  min = document.getElementById("session-length").value;
-  min = Number(min);
+  min = Number(document.getElementById("session-length").innerHTML);
   if (min > 1) {
     min -= 1 ;
   }
-  document.getElementById("session-length").value = min;
+  document.getElementById("session-length").innerHTML = String(min);
   showTime();
 }
 
 function pressSessionIncrement() {
-  min = document.getElementById("session-length").value;
-  min = Number(min);
+  min = Number(document.getElementById("session-length").innerHTML);
   if (min < 60) {
     min += 1;
   }
-  document.getElementById("session-length").value = min;
+  document.getElementById("session-length").innerHTML = String(min);
   showTime();
 }
 
@@ -55,8 +51,8 @@ function pressReset() {
   document.getElementById("beep").pause();
   document.getElementById("beep").currentTime = 0;
   document.getElementById("timer-label").innerHTML = "Session";
-  document.getElementById("break-length").value = 5;
-  document.getElementById("session-length").value = 25;
+  document.getElementById("break-length").innerHTML = "5";
+  document.getElementById("session-length").innerHTML = "25";
   showTime();
 }
 
@@ -76,7 +72,8 @@ function showTime() {
   else if (min == 0) {
     min = "00";
   }
-  document.getElementById("time-left").innerHTML = min + ":" + sec;
+
+  document.getElementById("time-left").innerHTML = String(min) + ":" + String(sec);
 }
 
 function startCountdown() {
@@ -124,14 +121,25 @@ function countDown() {
       if (timerLabel == "Session") {
         timerLabel = "Break";
         document.getElementById("timer-label").innerHTML = timerLabel;
-        min = document.getElementById("break-length").value;
+        min = document.getElementById("break-length").innerHTML;
       }
       else if (timerLabel == "Break") {
         timerLabel = "Session";
         document.getElementById("timer-label").innerHTML = timerLabel;
-        min = document.getElementById("session-length").value;
+        min = document.getElementById("session-length").innerHTML;
       }
     }
   }
   showTime();
+}
+
+function toggleLightMode() {
+  let element = document.body;
+  element.classList.toggle("light-mode");
+
+  let element2 = document.getElementById("start_stop");
+  element2.classList.toggle("light-mode");
+
+  let element3 = document.getElementById("reset");
+  element3.classList.toggle("light-mode");
 }

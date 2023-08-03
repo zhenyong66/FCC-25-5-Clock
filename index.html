@@ -1,29 +1,72 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
 <head>
-    <link rel="stylesheet" href="style.css"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>25+5 Clock</title>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-    <script src="script.js"></script>
-    <div id="break-label">Break Length
-        <input id="break-length" value=5></input>
-    </div>
-    <div id="session-label">Session Length
-        <input id="session-length" value=25></input>
-    </div>
-    <div>
-        <button id="break-decrement" onclick="pressBreakDecrement()">Break Decrement</button>
-        <button id="break-increment" onclick="pressBreakIncrement()">Break Increment</button>
-        <button id="session-decrement" onclick="pressSessionDecrement()">Session Decrement</button>
-        <button id="session-increment" onclick="pressSessionIncrement()">Session Increment</button> 
-    </div>
-    <div>
-        <p id="timer-label"></p>
-        <p id="time-left"></p>
-    </div>  
-    <div>
-        <button id="start_stop" onclick="pressStartStop()">Start/Stop</button>
-      
-        <button id="reset" onclick="pressReset()">Reset</button>
+    <div id="clock" class="flex-column">
+        <header class="txt-align-center">
+            <h1>25 + 5 Clock</h1>
+        </header>
+        <div id="set-timer" class="flex margin-top-20px">
+            <div id="break" class="flex-column txt-align-center">
+                <h2 id="break-label">Break Length</h2>
+                <div>
+                    <button id="break-decrement" onclick="pressBreakDecrement()">
+                        <i class="fa fa-arrow-down fa-2x"></i>
+                    </button>
+                    <span id="break-length">5</span>
+                    <button id="break-increment" onclick="pressBreakIncrement()">
+                        <i class="fa fa-arrow-up fa-2x"></i>
+                    </button>
+                </div>
+            </div>
+            <div id="session" class="flex-column txt-align-center">
+                <h2 id="session-label">Session Length</h2>
+                <div>
+                    <button id="session-decrement" onclick="pressSessionDecrement()">
+                        <i class="fa fa-arrow-down fa-2x"></i>
+                    </button>
+                    <span id="session-length">25</span>
+                    <button id="session-increment" onclick="pressSessionIncrement()">
+                        <i class="fa fa-arrow-up fa-2x"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="display" class="margin-top-20px txt-align-center">
+            <h2 id="timer-label"></h2>
+            <p id="time-left"></p>
+        </div>
+        <div class="margin-top-20px">
+            <button id="start_stop" onclick="pressStartStop()">
+                <i class="fa fa-play fa-2x"></i>
+                <i class="fa fa-pause fa-2x"></i>
+            </button>
+            <button id="reset" onclick="pressReset()">
+                <i class="fa fa-refresh fa-2x"></i>
+            </button>
+        </div>
+        <div id="dark-mode-toggle" class="margin-top-20px flex">
+            <span>Dark mode:</span>
+            <label class="switch">
+                <input type="checkbox" checked>
+                <span class="slider round" onclick="toggleLightMode()"></span>
+            </label>
+        </div>
+        <footer class="margin-top-20px">
+            <p>Coded by Zhenyong Shin</p>
+        </footer>
     </div>
     <audio id="beep" src="https://freesound.org/data/previews/316/316847_4939433-lq.mp3"></audio>
+    <script src="script.js"></script>
 </body>
+
+</html>
